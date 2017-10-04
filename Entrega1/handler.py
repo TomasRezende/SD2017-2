@@ -40,6 +40,7 @@ def carregaArq():
                 a = Aresta(verticeUm, verticeDois, float(args[2]), bool(args[3]), args[4])
                 Arestas.append(a)
 
+
     trava.release()
     return Grafo(Vertices, Arestas)
 
