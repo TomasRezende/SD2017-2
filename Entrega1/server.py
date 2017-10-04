@@ -1,4 +1,5 @@
 import sys
+import argparse
 
 sys.path.append('gen-py')
 
@@ -13,6 +14,14 @@ from thrift.protocol import TBinaryProtocol
 from thrift.server import TServer
 
 
+try:
+    par = argparse.ArgumentParser()
+    par.add_argument("-p", "--porta", help="Porta", required=True)
+    args = par.parse_args()
+    Porta = args.porta
+except Exception as e:
+    print(e)
+    exit()
 
 class Server(object):
     def __init__(self):
@@ -32,4 +41,4 @@ class Server(object):
 if __name__ == '__main__':
     print("Servidor Online!")
     server = Server()
-    server.run()
+    server.run(Porta)
